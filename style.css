@@ -11,12 +11,16 @@ html,body{
     width: 100%;
     height: 100%;
     display: flex;
+    overflow: hidden;
+    
 }
 #left{
     height: 100%;
     width: 50%;
     position: relative;
+    overflow: hidden;
 }
+
 
 #left #nav{
     height: 100px;
@@ -26,8 +30,13 @@ html,body{
     justify-content: space-between;
     padding: 0 20px;
     position: relative;
-    z-index: 999;
+    z-index: 9999;
     color: white;
+    animation-name:moverar;
+    animation-delay: 1.5s;
+    animation-duration: 1s;
+    animation-fill-mode:both;
+    opacity: 0;
 }
 #nav h1{
     font-family: ogg;
@@ -45,6 +54,12 @@ html,body{
     height: 100%;
     width: 100%;
     object-fit: cover;
+    animation-name:moves;
+    animation-delay: 1s;
+    animation-duration: 1s;
+    animation-fill-mode:both;
+    z-index: 99;
+    opacity: 0;
 }
 #left>h1{
     position: absolute;
@@ -56,30 +71,43 @@ html,body{
     text-align: right;
     line-height: 1;
     font-weight: 400;
+    opacity: 0;
+    animation-delay: 1.5s;   
+     animation-name:moveizr;
+    animation-duration: 1s;
+    animation-fill-mode:both;
+
 
 }
 #right{
     height: 100%;
     width: 50%;
     position: relative;
+    z-index: 999;
 }
 
 #right #img1{
     position: absolute;
-    left: 50%;
+    left: 40%;
     height: 170px;
     width: 140px;
     object-fit: cover;
     transform: translate(-50%,0);
+    animation-name:Izrmove;
+    animation-duration: 1s;
+    animation-fill-mode:both;
 }
 #right #img2{
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 10%;
     height: 220px;
     width: 170px;
     object-fit: cover;
     transform: translate(0,-50%);
+    animation-name:Izrmove;
+    animation-duration: 1s;
+    animation-fill-mode:both;
 }
 #right #img3{
     position: absolute;
@@ -89,6 +117,9 @@ html,body{
     width: 140px;;
     object-fit: cover;
     transform: translate(-50%,0);
+    animation-name:Izrmove;
+    animation-duration: 1s;
+    animation-fill-mode:both;
 }
 #right h1{
     position: absolute;
@@ -100,4 +131,77 @@ html,body{
     transform: rotate(-90deg);
     font-size: 50px;
     font-weight: 500;
+    animation-name:Izrmoves; 
+    animation-delay: .3s;
+    animation-duration: .8s;
+    animation-fill-mode:both;
+}
+#left #overlay{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(151, 52, 52);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    animation-name:Izrmove; 
+    animation-duration: .8s;
+    animation-fill-mode:both;
+}
+
+@keyframes Izrmove {
+    0%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    
+}
+@keyframes Izrmoves {
+    0%{
+        right:-50%;
+        opacity: 0;
+    }
+    100%{
+        right: 0%;
+        opacity: 1;
+    }
+    
+}
+
+@keyframes moves {
+    0%{
+        opacity: 0;
+        transform: rotate(30deg) scale(1.4);
+    }
+    100%{
+        transform: rotate(0) scale(1);
+        opacity: 1;
+
+    }
+}
+@keyframes moveizr {
+    0%{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+
+    }
+}
+@keyframes moverar {
+    0%{
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+
+    }
 }
